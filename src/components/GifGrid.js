@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const GifGrid = ({category}) => {
+
+    const [Count, setCount] = useState(0);
+
+    //Hacer petición http solo una vez 
+    useEffect( ()=>{
+        getGifs();
+    }, [])
 
     //Petición http
     const getGifs = async() => {
@@ -20,11 +27,13 @@ export const GifGrid = ({category}) => {
         
     }
 
-    getGifs();
+    // getGifs();
 
     return (
         <>
             <h3>{category}</h3>
+            <h3>{Count}</h3>
+            <button onClick={()=>setCount(Count + 1)}></button>
         </>
     )
 }
