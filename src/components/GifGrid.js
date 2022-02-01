@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { GifGridItem } from './GifgridItem';
 
 export const GifGrid = ({category}) => {
 
-    const [Count, setCount] = useState(0);
+
+    const [images, setImages] = useState([]);
 
     //Hacer petición http solo una vez 
     useEffect( ()=>{
@@ -24,16 +26,21 @@ export const GifGrid = ({category}) => {
             }
         })
         console.log(gifs);
-        
+        setImages(gifs);
     }
 
-    // getGifs();
 
     return (
         <>
             <h3>{category}</h3>
-            <h3>{Count}</h3>
-            <button onClick={()=>setCount(Count + 1)}></button>
+                {
+                    images.map( image => (
+                        <GifGridItem 
+                            key = {image.id}
+                            {...image}  //mandar cada una de las propiedades de la imagen
+                        />
+                    ))
+                }
         </>
     )
 }
