@@ -13,7 +13,7 @@ const AddCategory = ({setCategories}) => {
         e.preventDefault();
 
         if(inputValue.trim().length > 2){ //Trim para eliminar los espacios
-            setCategories(cats => [...cats, inputValue]); //agregar elemento al arreglo
+            setCategories(cats => [inputValue, ...cats]); //agregar elemento al arreglo
             setinputValue(''); //dejar la caja de texto vacía 
         }
 
