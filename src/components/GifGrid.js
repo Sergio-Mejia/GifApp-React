@@ -33,14 +33,16 @@ export const GifGrid = ({category}) => {
     return (
         <>
             <h3>{category}</h3>
-                {
-                    images.map( image => (
-                        <GifGridItem 
-                            key = {image.id}
-                            {...image}  //mandar cada una de las propiedades de la imagen
-                        />
-                    ))
-                }
+            <div className='card-grid'>
+                    {
+                        images.map( image => (
+                            <GifGridItem 
+                                key = {image.id}
+                                {...image}  //mandar cada una de las propiedades de la imagen
+                            />
+                        ))
+                    }
+            </div>
         </>
     )
 }
