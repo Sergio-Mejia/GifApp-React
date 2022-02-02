@@ -9,9 +9,9 @@ export const GifGrid = ({category}) => {
 
     return (
         <>
-            <h3>{category}</h3>
+            <h3 className="animate__animated animate__fadeInDown">{category}</h3>
 
-            {loading && <p>Loading</p>} {/*operador && funciona como if sin evaluar el else */}
+            {loading && <p className="animate__animated animate__flash">Loading</p>} {/*operador && funciona como if sin evaluar el else */}
             <div className='card-grid'>
                     {
                         images.map( image => (
