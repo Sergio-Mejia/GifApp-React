@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { prototype } from '@wojtekmaj/enzyme-adapter-react-17';
 
 export const GifGridItem = ({title, url}) => {
 
-    
+
     console.log(title, url);
     
     return (
@@ -13,3 +15,7 @@ export const GifGridItem = ({title, url}) => {
     )
 }
 
+GifGridItem.propTypes = {
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired
+}
